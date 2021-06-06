@@ -1,0 +1,66 @@
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+
+  printGoals: function (arr) {
+    const randomItem = Math.floor(Math.random() * arr.length);
+    const displayedItem = arr[randomItem];
+    return displayedItem;
+  },
+};
+
+const players1 = game.players[0];
+const players2 = game.players[1];
+//rest operator
+const [gk, ...fieldPlayers] = players1;
+//spread operator
+const allPlayers = [...players1, ...players2];
+const players1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
+//odds variable
+const team1 = game.odds["team1"];
+const draw = game.odds["x"];
+const team2 = game.odds["team2"];
+
+//printFunction
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored `);
+};
+
+printGoals("Davis", "Muller", "Lewandowski", "Kimich");
+printGoals("Davis", "Muller");    
