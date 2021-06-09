@@ -64,3 +64,100 @@ const printGoals = function (...players) {
 
 printGoals("Davis", "Muller", "Lewandowski", "Kimich");
 printGoals("Davis", "Muller");    
+
+////////////////////////////////////////////////////Restraunt functionalities
+
+const days =['mon','tues','wed','thurs','fri','sat','sun'];
+const openingHours={
+thu:{
+open:12,
+close:22,
+},
+fri:{
+open:11,
+close:23,
+},
+sat:{    
+open:0,
+close:24,
+},
+}
+
+const restraunt={
+name:'Punjabi Tadka',
+location:'Metro Plaza',
+categories:['North India','South India','Italian','Punjabi'],
+starterMenu:['Momos','Manchurian','Chowmein','Pizza','Garlic Bread'],
+mainMenu:['Malai Kofta','Dal Makhani','Naan','shimla Mirch'],
+openingHours,
+order:function(starterIndex,mainIndex){
+return[this.starterMenu[starterIndex],this.mainMenu[mainIndex]];
+},
+orderDelievery:function({starterIndex,mainIndex,time,address}){
+console.log(`Order Received !! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delievered to ${address} at ${time}`);
+},
+orderPasta:function(ing1,ing2,ing3){
+console.log(`Your order of Pasta with ${ing1} , ${ing2} and ${ing3} is ready !!`);
+}
+};
+restraunt.orderDelievery({
+time:'22:10',
+address:'126,Police Chawki',
+mainIndex:2,
+starterIndex:1,
+});
+
+const ingredient=[prompt('Lets make Pasta !! ingredient1 ?'),prompt('ingredient2 ?'),prompt('ingredient3 ?')];
+restraunt.orderPasta(...ingredient);
+
+const menu = [...restraunt.starterMenu,...restraunt.mainMenu];
+
+for (const [i,el] of menu.entries()){
+console.log(`${i+1}:${el}`);
+};
+console.log(restraunt.openingHours.mon?.open);
+
+
+
+
+//Looping over an object keys
+const properties=Object.keys(openingHours);
+let openStr=`We are open on ${properties.length} days`;
+for(const day of properties){
+openStr += `${day},`;
+}
+console.log(openStr);
+
+
+
+
+//Looping over the Object values
+const values = Object.values(openingHours);
+console.log(values);
+
+
+
+
+
+//Looping over the entire object
+const properties_2=Object.entries(openingHours);
+for(const [keys,{open,close}] of properties_2){
+console.log(`On ${keys} , we open at ${open} and close at ${close}`)    ;
+} ; 
+
+
+
+//////////////////Sets////////////////////////////////////////
+ 
+const orderSet = new Set([
+"Pizza",
+"Pizza",
+"Pizza",
+"Risotto",
+"Pasta",
+"Pizza",
+]);
+console.log(orderSet);
+console.log(orderSet.size);
+console.log(orderSet.has('Pizza'));
+orderSet.add("Burger");
