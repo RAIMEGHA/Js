@@ -65,7 +65,7 @@ const printGoals = function (...players) {
 printGoals("Davis", "Muller", "Lewandowski", "Kimich");
 printGoals("Davis", "Muller");    
 
-////////////////////////////////////////////////////Restraunt functionalities
+////////////////////////////////////////////////////Restraunt functionalities////////////////////////////////////
 
 const days =['mon','tues','wed','thurs','fri','sat','sun'];
 const openingHours={
@@ -120,7 +120,7 @@ console.log(restraunt.openingHours.mon?.open);
 
 
 
-//Looping over an object keys
+//////////////////////////////////////////////////////////////////////Looping over an object keys/////////////////////////////////
 const properties=Object.keys(openingHours);
 let openStr=`We are open on ${properties.length} days`;
 for(const day of properties){
@@ -131,7 +131,7 @@ console.log(openStr);
 
 
 
-//Looping over the Object values
+///////////////////////////Looping over the Object values//////////////////////////////////////////////////////////
 const values = Object.values(openingHours);
 console.log(values);
 
@@ -139,7 +139,7 @@ console.log(values);
 
 
 
-//Looping over the entire object
+//////////////////////////////////////////////////Looping over the entire object///////////////////////////////////////
 const properties_2=Object.entries(openingHours);
 for(const [keys,{open,close}] of properties_2){
 console.log(`On ${keys} , we open at ${open} and close at ${close}`)    ;
@@ -161,3 +161,50 @@ console.log(orderSet);
 console.log(orderSet.size);
 console.log(orderSet.has('Pizza'));
 orderSet.add("Burger");
+
+/////////////////////////////////mini quiz app////////////////////////////////////////////
+const questions = new Map([
+['question','What is the best programming language in the world'],
+[1,'C'],
+[2,'Java'],
+[3,'Javascript'],
+['Correct Answer',3],
+[true,'Correct'],l
+[false,'Incorrect']
+]) ;
+console.log(questions);
+console.log(questions.get('question'));
+for(const [key,value] of questions){
+if(typeof key === 'number'){
+console.log(`Answer ${key} : ${value}`);
+};
+};
+const answer = prompt("Your answer");
+
+
+/////////////////////////////////////////////////mini Football betting application///////////////////////////
+
+const gameEvennts = new Map ([
+['17','Goal'],
+['36','Substitution'],
+['47','Goal'],
+['61','Substitution'],
+['64','Yellow Card'],
+['69','Red Card'],
+['70','Substitution'],
+['72','Substitution'],
+['76','Goal'],
+['80','Goal'],
+['92','Yellow Card'],
+]);
+const events = [...new Set(gameEvennts.values())];
+console.log(events);
+
+const game=[...gameEvennts.keys()].pop();
+
+console.log(`An event happened , on an average , every ${game/gameEvennts.size} minutes `);
+
+for(const [keys,values] of gameEvennts.entries()){
+console.log(`${values} happened at ${keys} time`);
+}
+
