@@ -208,3 +208,103 @@ for(const [keys,values] of gameEvennts.entries()){
 console.log(`${values} happened at ${keys} time`);
 }
 
+
+
+
+
+
+/////////////////////String Methods////////////////////////////////////////
+const airline="QUATAR AIRWAYS";
+const plane= "A320";
+
+//string indexes
+console.log(airline[0]);
+console.log(airline[1]);
+console.log(airline[2]);
+
+//length of the string
+console.log(airline.length);
+console.log(plane.length);
+
+//string methods
+console.log(airline.indexOf('Q'));
+console.log(airline.indexOf('AIRWAYS'));
+console.log(airline.lastIndexOf('S'));
+console.log(airline.slice(4,6));
+console.log(airline.slice(4,airline.indexOf(' ')));
+
+
+
+//this is the conversion that javscript does behind the scenes whenever the method on a string is called, it simply converts the string primitives into the object and then the methods are called
+console.log(new String('airlines'));
+console.log(typeof new String('airlines'));
+
+
+//to print to the passenger whether the seat they got is middle or not
+function seatLocation(seat){
+//A and B are the middle seats
+const s=seat.slice(-1);
+if(s==='A' || s==='B'){
+console.log("You got the middle seat");
+}
+else{
+console.log("You got lucky !!");
+}
+}
+seatLocation('11A');
+seatLocation('11B');
+seatLocation('11C');
+
+
+
+//fix capitalisation in name
+const passenger = 'jOnAs';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect = passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+
+
+//replacing the string
+const announcement = "All passesnger come to boarding door 23 . Boarding door 23 !!"
+console.log(announcement.replace(/door/g,'gate'));
+
+
+
+//boolean
+const plane1="A320neo";
+console.log(plane.includes('neo'));
+console.log(plane.includes('Boeing'));
+console.log(plane.startsWith('Air'));
+if(plane.startsWith('A320') && plane.endsWith('neo')){
+console.log('Part of the new Airbus family');
+}
+
+
+
+//split method
+console.log('a+very+nice+string'.split('+'));
+const [firstName,lastName]='Megha Rai'.split(' ');
+console.log(firstName);
+console.log(lastName);
+
+
+//Join Method
+const newName=['Mrs',firstName,lastName.toLowerCase()].join(' ');
+console.log(newName);
+
+
+
+
+//capitalise a name
+function capitaliseName(name){
+const names=name.split(' ');
+const n=[];
+for(const word of names){
+n.push(word[0].toUpperCase() + word.slice('1'));
+}
+console.log(n.join(' '));
+};
+capitaliseName('mr anil kumar rai');
+capitaliseName('mrs asha rai');
+
