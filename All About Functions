@@ -1,0 +1,35 @@
+///////////////default parameters/////////////////////////////////////////////////////////////////////
+
+const bookings =[];
+const createBooking = function(flightNum,numPassengers=1,price=numPassengers*19){
+//ES5 
+//const numPassengers = numPassengers || 1;
+const booking={
+flightNum,
+numPassengers,
+price,
+}
+console.log(booking);
+bookings.push(booking);
+}
+createBooking('LH123');
+//skipping the default parameter , any value that has not passed will take the form of undefined
+createBooking('LH123',undefined,'1000');
+
+////////////////Functions Accepting Callback Functions////////////////////////////////////////////////////
+
+const firstLetterUpper=function(str){
+const[first,...others]=str.split(' ');
+return [first.toUpperCase(),...others].join(' ');
+}
+
+const oneWord=function(str){
+return str.replace(/ /g,'').toLowerCase();
+}
+///Higher order function////////
+const transformer = function(str,fn){
+console.log(`Original String : ${str}`);
+console.log(`Transformed String : ${fn(str)}`);
+}
+
+transformer('Javascript is the best Language',firstLetterUpper);
