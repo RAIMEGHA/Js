@@ -1,0 +1,13 @@
+//1. JavaScript program to find 1st January is being a Sunday between 2014 and 2050
+
+var till=new Date(2050,0,1);
+console.log(till);
+var newSun = [];
+// adding one to the year causes the year to roll over to the next year if necessary, and without messing around with milliseconds.
+for(var d=new Date(2014,0,1) ; d<=till ; d.setFullYear(d.getFullYear()+1)){
+console.log(d);
+if(d.getDay()===0){
+newSun.push(d.getFullYear());
+console.log(newSun);
+}
+};
